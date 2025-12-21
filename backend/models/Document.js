@@ -26,6 +26,12 @@ const documentSchema = new mongoose.Schema(
     content: {
         type: String,
     },
+    chunks: [
+    {
+        type: String,
+    },
+],
+
 
   },
   { timestamps: true }

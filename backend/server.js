@@ -5,6 +5,8 @@ import cors from "cors";
 import authRoutes from "./routes/authRoutes.js";
 import userRoutes from "./routes/userRoutes.js";
 import documentRoutes from "./routes/documentRoutes.js";
+import searchRoutes from "./routes/searchRoutes.js";
+
 
 
 dotenv.config();
@@ -19,6 +21,7 @@ app.use(express.json()); // 👈 THIS IS CRITICAL
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/documents", documentRoutes);
+app.use("/api/search", searchRoutes);
 
 
 // Test route

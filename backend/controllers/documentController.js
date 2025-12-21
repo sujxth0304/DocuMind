@@ -1,5 +1,7 @@
 import Document from "../models/Document.js";
 import { extractText } from "../utils/textExtractor.js";
+import { chunkText } from "../utils/textChunker.js";
+
 
 export const uploadDocument = async (req, res) => {
   try {
@@ -15,6 +17,9 @@ export const uploadDocument = async (req, res) => {
       req.file.path,
       req.file.mimetype
     );
+    const chunks = chunkText(extractedText);
+
+    
 
     console.log("Text extracted, length:", extractedText.length); // 👈 ADD
 
@@ -25,13 +30,15 @@ export const uploadDocument = async (req, res) => {
       filePath: req.file.path,
       fileType: req.file.mimetype,
       content: extractedText,
+        chunks,
     });
 
     res.status(201).json({
-      message: "Document uploaded & processed",
-      documentId: doc._id,
-      textLength: extractedText.length,
+        message: "Document uploaded, processed & chunked",
+        documentId: doc._id,
+        chunks: chunks.length,
     });
+
   } catch (error) {
     console.error("UPLOAD ERROR:", error); // 👈 VERY IMPORTANT
     res.status(500).json({ message: "Server error" });

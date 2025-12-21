@@ -23,6 +23,10 @@ const documentSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    content: {
+        type: String,
+    },
+
   },
   { timestamps: true }
 );

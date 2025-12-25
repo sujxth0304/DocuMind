@@ -33,18 +33,6 @@ This project is built from the ground up with a production-style backend archite
 
 ---
 
-## 📂 Backend Structure
-
-backend/
-│
-├── controllers/
-├── models/
-├── routes/
-├── middleware/
-├── utils/
-├── uploads/
-└── server.js
-
 ## 📌 Status
 
 🚧 Backend complete

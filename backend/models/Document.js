@@ -28,7 +28,8 @@ const documentSchema = new mongoose.Schema(
     },
     chunks: [
     {
-        type: String,
+        text: String,
+        embedding: [Number],
     },
 ],
 
@@ -38,3 +39,5 @@ const documentSchema = new mongoose.Schema(
 );
 
 export default mongoose.model("Document", documentSchema);
+
+
